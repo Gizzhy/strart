@@ -2,28 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@keyframes changeBackground {
+  0%,
+  100% {
+    background-image: url("../assets/9.jpg"); /* Initial background image */
+  }
+  20% {
+    background-image: url("../assets/2.jpg"); /* Second background image after 3 seconds */
+  }
+  40% {
+    background-image: url("../assets/12.jpg"); /* Second background image after 3 seconds */
+  }
+  60% {
+    background-image: url("../assets/11.jpg"); /* Second background image after 3 seconds */
+  }
+  80% {
+    background-image: url("../assets/7.jpg"); /* Back to the initial background image after 9 seconds */
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.change-background-animation {
+  animation: changeBackground 15s infinite;
 }
 
 @layer utilities {
