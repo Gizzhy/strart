@@ -1,19 +1,11 @@
-function increment(id) {
-  var element = document.getElementById(id);
-  var value = parseInt(element.innerHTML);
-  if (value >= 0) {
-    value++;
-    element.innerHTML = value;
-  }
-}
+// utils/quantity.js
+import { useState } from "react";
 
-export function decrement(id) {
-  var element = document.getElementById(id);
-  var value = parseInt(element.innerHTML);
-  if (value > 0) {
-    value = value - 1;
-    element.innerHTML = value;
-  }
-}
+export const useQuantity = (initialValue = 0) => {
+  const [quantity, setQuantity] = useState(initialValue);
 
-export default increment;
+  const increment = () => setQuantity(quantity + 1);
+  const decrement = () => setQuantity(quantity > 0 ? quantity - 1 : 0);
+
+  return { quantity, increment, decrement };
+};

@@ -17,6 +17,10 @@ module.exports = {
         "custom-bata2": "url('../assets/shoe2.jpg')",
         "custom-bata3": "url('../assets/shoe3.jpg')",
         "custom-bata4": "url('../assets/shoe4.jpg')",
+        "custom-bata5": "url('../assets/shoe5.jpg')",
+        "custom-bata6": "url('../assets/shoe6.jpg')",
+        "custom-bata7": "url('../assets/shoe7.jpg')",
+        "custom-bata8": "url('../assets/shoe8.jpg')",
       },
       borderRadius: {
         "px-8": "8px",
@@ -27,6 +31,7 @@ module.exports = {
         "custom-blue": "#2D404D",
         "custom-brown": "#4d3a2d",
         "custom-gray": "rgba(223, 223, 223, 0.26)",
+        "custom-grey": "#f9f9f9",
       },
       padding: {
         2.4: "0.6rem",

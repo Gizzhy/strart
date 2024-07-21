@@ -1,6 +1,11 @@
+
 import React from "react";
 
-const NumberDropdown = ({ selectedNumber, handleChange }) => {
+const NumberDropdown = ({ onSelect }) => {
+  const handleChange = (event) => {
+    onSelect(event.target.value);
+  };
+
   const generateOptions = () => {
     const options = [];
     for (let i = 10; i <= 50; i++) {
@@ -13,11 +18,7 @@ const NumberDropdown = ({ selectedNumber, handleChange }) => {
     return options;
   };
 
-  return (
-    <select id="numberDropdown" value={selectedNumber} onChange={handleChange}>
-      {generateOptions()}
-    </select>
-  );
+  return <select onChange={handleChange}>{generateOptions()}</select>;
 };
 
 export default NumberDropdown;
