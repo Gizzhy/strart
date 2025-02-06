@@ -21,6 +21,8 @@ module.exports = {
         "custom-bata6": "url('../assets/shoe6.jpg')",
         "custom-bata7": "url('../assets/shoe7.jpg')",
         "custom-bata8": "url('../assets/shoe8.jpg')",
+        "custom-men": "url('../assets/men.jpg')",
+        "custom-women": "url('../assets/women.jpg')",
       },
       borderRadius: {
         "px-8": "8px",

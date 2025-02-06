@@ -4,7 +4,6 @@ import { products, productsFemale } from "../utils/product";
 import { handlePurchase } from "../utils/handlePurchase";
 import { FaCircleMinus } from "react-icons/fa6";
 import { FaCirclePlus } from "react-icons/fa6";
-import { useQuantity } from "../utils/quantity";
 import NumberDropdown from "../utils/Dropdown";
 
 export default function Category() {
@@ -24,6 +23,21 @@ export default function Category() {
       [id]: size,
     }));
   };
+  const [quantities, setQuantities] = useState({});
+
+  const increment = (id) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [id]: (prev[id] || 1) + 1,
+    }));
+  };
+
+  const decrement = (id) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [id]: prev[id] > 1 ? prev[id] - 1 : 1,
+    }));
+  };
 
   return (
     <>
@@ -38,7 +52,7 @@ export default function Category() {
       </div>
       <div className="w-[1100px] flex h-[600px] bg-cover p-5 justify-evenly items-center mt-12">
         {products.map((product) => {
-          const { quantity, increment, decrement } = useQuantity(1);
+          const quantity = quantities[product.id] || 1;
           return (
             <div
               key={product.id}
@@ -61,7 +75,7 @@ export default function Category() {
                     fontSize={30}
                     color="#4d3a2d"
                     className="cursor-pointer"
-                    onClick={increment}
+                    onClick={() => increment(product.id)}
                   />
                   <span className="text-lg text-custom-brown font-semibold mr-1 ml-1">
                     {quantity}
@@ -70,7 +84,7 @@ export default function Category() {
                     fontSize={30}
                     color="#4d3a2d"
                     className="cursor-pointer"
-                    onClick={decrement}
+                    onClick={() => decrement(product.id)}
                   />
                 </div>
                 <div className="w-[50%] flex">
@@ -112,7 +126,7 @@ export default function Category() {
       </div>
       <div className="w-[1100px] flex h-[600px] bg-cover p-5 justify-evenly items-center mt-12">
         {productsFemale.map((product) => {
-          const { quantity, increment, decrement } = useQuantity(1);
+          const quantity = quantities[product.id] || 1;
           return (
             <div
               key={product.id}
@@ -135,7 +149,7 @@ export default function Category() {
                     fontSize={30}
                     color="#4d3a2d"
                     className="cursor-pointer"
-                    onClick={increment}
+                    onClick={() => increment(product.id)}
                   />
                   <span className="text-lg text-custom-brown font-semibold mr-1 ml-1">
                     {quantity}
@@ -144,7 +158,7 @@ export default function Category() {
                     fontSize={30}
                     color="#4d3a2d"
                     className="cursor-pointer"
-                    onClick={decrement}
+                    onClick={() => decrement(product.id)}
                   />
                 </div>
                 <div className="w-[50%] flex">
